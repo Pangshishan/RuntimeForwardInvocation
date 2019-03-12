@@ -11,23 +11,24 @@
 
 @implementation BaseMsgObject
 
-void sendMessage(id self, SEL _cmd, NSString *msg) {
-    NSLog(@"BaseMsgObject - %@", msg);
-}
 
-// 动态消息解析
-+ (BOOL)resolveInstanceMethod:(SEL)sel {
-    if ([NSStringFromSelector(sel) isEqualToString:@"sendMsg:"]) {
-        class_addMethod([BaseMsgObject class], sel, (IMP)sendMessage, "v@:@");
-    }
-    return [super resolveInstanceMethod:sel];
-}
-// 类方法
-+ (BOOL)resolveClassMethod:(SEL)sel {
-    if ([NSStringFromSelector(sel) isEqualToString:@"sendMsg:"]) {
-        class_addMethod(object_getClass([self class]), sel, (IMP)sendMessage, "v@:@");
-    }
-    return [super resolveInstanceMethod:sel];
-}
+//static void sendMsg(id self, SEL _cmd, NSString *msg) {
+//    NSLog(@"BaseMsgObject - %@", msg);
+//}
+//
+//// 动态消息解析
+//+ (BOOL)resolveInstanceMethod:(SEL)sel {
+//    if ([NSStringFromSelector(sel) isEqualToString:@"sendMsg:"]) {
+//        class_addMethod([BaseMsgObject class], sel, (IMP)sendMsg, "v@:@");
+//    }
+//    return [super resolveInstanceMethod:sel];
+//}
+//// 类方法
+//+ (BOOL)resolveClassMethod:(SEL)sel {
+//    if ([NSStringFromSelector(sel) isEqualToString:@"sendMsg:"]) {
+//        class_addMethod(object_getClass([self class]), sel, (IMP)sendMsg, "v@:@");
+//    }
+//    return [super resolveInstanceMethod:sel];
+//}
 
 @end

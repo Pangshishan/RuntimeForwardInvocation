@@ -26,6 +26,8 @@
     objc_msgSend(msgObj, NSSelectorFromString(@"sendMsg:"), @"hello");
     
 //    objc_msgSend([MsgObject class], NSSelectorFromString(@"sendMsg:"),  @"hello");
+    
+    
 }
 
 

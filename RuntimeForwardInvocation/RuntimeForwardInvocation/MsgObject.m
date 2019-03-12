@@ -13,7 +13,7 @@
 
 @implementation MsgObject
 
-void sendMsg(id self, SEL _cmd, NSString *msg) {
+static void sendMsg(id self, SEL _cmd, NSString *msg) {
     NSLog(@"MsgObject - %@", msg);
 }
 
