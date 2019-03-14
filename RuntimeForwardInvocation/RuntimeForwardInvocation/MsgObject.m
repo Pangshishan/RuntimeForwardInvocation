@@ -16,24 +16,13 @@
 static void sendMsg(id self, SEL _cmd, NSString *msg) {
     NSLog(@"MsgObject - %@", msg);
 }
-
-// 动态消息解析
+// 动态方法解析
 + (BOOL)resolveInstanceMethod:(SEL)sel {
     if ([NSStringFromSelector(sel) isEqualToString:@"sendMsg:"]) {
         class_addMethod([MsgObject class], sel, (IMP)sendMsg, "v@:@");
     }
     return [super resolveInstanceMethod:sel];
-    return NO;
 }
-
-// 类方法
-//+ (BOOL)resolveClassMethod:(SEL)sel {
-//    if ([NSStringFromSelector(sel) isEqualToString:@"sendMsg:"]) {
-//        class_addMethod(object_getClass([self class]), sel, (IMP)sendMsg, "v@:@");
-//    }
-//    return [super resolveInstanceMethod:sel];
-//}
-
 // 简单转发
 - (id)forwardingTargetForSelector:(SEL)aSelector {
     if ([NSStringFromSelector(aSelector) isEqualToString:@"sendMsg:"]) {
@@ -58,5 +47,30 @@ static void sendMsg(id self, SEL _cmd, NSString *msg) {
 
 
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
