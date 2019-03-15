@@ -19,10 +19,8 @@
  5. 调用方法的几种方式
  6. NSInvocation 方式调用block
  7.
- 
- 
- 
  */
+
 
 @interface ViewController ()
 
@@ -41,7 +39,8 @@
     
 //    objc_msgSend([MsgObject class], NSSelectorFromString(@"sendMsg:"),  @"hello");
     
-//    [self invokeFunc];
+    //[self invokeFunc];
+//    [self invokeBlock];
 }
 
 // 4. 调用方法的集中方
@@ -63,6 +62,9 @@
     [invocation invoke];
 }
 
+- (void)invokeBlock {
+    
+}
 
 
 
